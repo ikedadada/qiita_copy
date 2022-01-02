@@ -18,6 +18,6 @@ def create_post(db:Session,post:PostSchema.PostCreateRequest):
   db.refresh(db_post)
   return db_post
 
-def get_post(db:Session,post_id:int):
-  post = db.query(Post).filter_by(Post.id == post_id).first()
+def get_post(db:Session,id:int):
+  post = db.query(Post).filter_by(id=id).first()
   return post

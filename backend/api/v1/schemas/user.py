@@ -8,6 +8,9 @@ class UserBase(BaseModel):
 class User(UserBase):
   id: int
 
+  class Config:
+    orm_mode = True
+
 class UserCreateRequest(UserBase):
   password: str = Field(None, description="パスワード")
   

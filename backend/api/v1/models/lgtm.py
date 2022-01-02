@@ -2,12 +2,13 @@ from sqlalchemy import Column, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 from api.v1.db import Base
 
+import api.v1.models.post
+
 class Lgtm(Base):
   __tablename__ = "lgtms"
 
   id = Column(Integer, primary_key=True)
-  user_id = Column(Integer, ForeignKey("users.id"))
-  post_id = Column(Integer, ForeignKey("posts.id"))
+  post_id = Column(Integer, ForeignKey("posts.id"), nullable=False)
+  user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
 
-  user = relationship('User', back_populates="lgtms")
-  post = relationship('Post', back_populates="lgtms")
+  post = relationship('api.v1.models.post.Post',back_populates='lgtms')
