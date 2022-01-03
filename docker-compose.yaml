@@ -4,6 +4,7 @@ services:
     build: ./backend
     environment:
       - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - SECRET_KEY=$SECRET_KEY
     volumes:
       - ./backend:/src
     ports:

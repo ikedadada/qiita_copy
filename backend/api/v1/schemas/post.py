@@ -15,9 +15,6 @@ class Post(PostBase):
 
   class Config:
     orm_mode = True #リクエストを返す時にこの項目だけレスポンスするようになる
-
-class PostCreateRequest(PostBase):
-  user_id: int = Field(None, description="ユーザーID")
   
 class PostLgtmCreateRequest(BaseModel):
   id: int

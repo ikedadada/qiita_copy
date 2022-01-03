@@ -10,7 +10,6 @@ def add_lgtm(db:Session,post_id:int,user_id:int):
   db_lgtm = Lgtm(user_id=user_id,post_id=post_id)
   db.add(db_lgtm)
   db.commit()
-  db.refresh(db_lgtm)
 
 def remove_lgtm(db:Session,lgtm:Lgtm):
   db.delete(lgtm)
