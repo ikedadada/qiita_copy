@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from api.v1.models.lgtm import Lgtm
 
 def get_lgtm(db:Session,post_id:int,user_id:int):
-  db_lgtm = db.query(Lgtm).filter_by(post_id==post_id,user_id==user_id).first()
+  db_lgtm = db.query(Lgtm).filter(post_id==post_id,user_id==user_id).first()
   return db_lgtm
 
 def add_lgtm(db:Session,post_id:int,user_id:int):
